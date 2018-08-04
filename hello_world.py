@@ -1,7 +1,7 @@
 import sys
 # pylint: disable = E0611
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip
+from PyQt5.QtGui import QIcon, QFont
 
 class HelloWorld(QWidget):
     
@@ -11,7 +11,10 @@ class HelloWorld(QWidget):
 
     
     def initUI(self):
-        b = QLabel(self)
+        QToolTip.setFont(QFont('SansSerif', 10))
+        self.setToolTip('This is a <b>QWidget</b> widget')
+        b = QLabel('Label', self)
+        b.setToolTip('This is a <b>QLabel</b> widget')
         b.setText("Hello World!")
         self.setGeometry(100, 100, 200, 50)
         b.move(50, 20)
