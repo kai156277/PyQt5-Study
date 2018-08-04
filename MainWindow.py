@@ -3,7 +3,7 @@ import sys
 
 # pylint: disable=E0611
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QMenu
+from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QMenu, QTextEdit
 from PyQt5.QtGui import QIcon, QKeySequence
 
 class ExampleMainWindow(QMainWindow):
@@ -40,6 +40,9 @@ class ExampleMainWindow(QMainWindow):
         self.statusBar().showMessage("Ready")
         self.toolbar = self.addToolBar('Exit')
         self.toolbar.addAction(exitAct)
+
+        textEdit = QTextEdit()
+        self.setCentralWidget(textEdit)
 
         self.setGeometry(300, 300, 250, 150)
         self.setWindowTitle('Example Main Window')
