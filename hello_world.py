@@ -1,6 +1,6 @@
 import sys
 # pylint: disable = E0611
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip, QPushButton
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip, QPushButton, QMessageBox
 from PyQt5.QtGui import QIcon, QFont
 
 class HelloWorld(QWidget):
@@ -24,12 +24,22 @@ class HelloWorld(QWidget):
         label.move(50, 20)
 
         button = QPushButton('&Quit', self) # &Quit 的写法 绑定Alt+Q的快捷键到button上
-        button.clicked.connect(QApplication.instance().quit)
+        button.clicked.connect(self.close)
         button.setToolTip('Quit this App!')
         button.resize(button.sizeHint())
         button.move(50, 50)
 
         self.show()
+    
+    def closeEvent(self, event):
+
+        reply = QMessageBox.question(self, 'Message', "Are you sure to quit?", 
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
 
 
 if __name__ == '__main__':
