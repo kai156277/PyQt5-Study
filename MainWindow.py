@@ -26,16 +26,29 @@ class ExampleMainWindow(QMainWindow):
         gmailMenu = QAction(QIcon("gmail.png"), '&Gmail', self)
         emailMenu.addAction(gmailMenu)
 
+        viewStatusAct = QAction("View Statusbar", self, checkable=True)
+        viewStatusAct.setStatusTip("View Statusbar")
+        viewStatusAct.setChecked(True)
+        viewStatusAct.triggered.connect(self.toggleMenu)
+
         menubar = self.menuBar()
         fileMenu = menubar.addMenu("&File")
+        fileMenu.addAction(viewStatusAct)
         fileMenu.addMenu(emailMenu)
         fileMenu.addAction(exitAct)
 
         self.statusBar().showMessage("Ready")
 
         self.setGeometry(300, 300, 250, 150)
-        self.setWindowTitle('Submenu')
+        self.setWindowTitle('Example Main Window')
         self.show()
+
+    def toggleMenu(self, state):
+
+        if state:
+            self.statusBar().show()
+        else:
+            self.statusBar().hide()
     
 if __name__ == '__main__':
 
