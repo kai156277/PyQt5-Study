@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "C:\\Program Files\\Python36\\python.exe",
+    "python.autoComplete.addBrackets": true,
+    "python.autoComplete.extraPaths": [
+        // "C:\\Program Files\\Python36\\Lib\\site-packages\\PyQt5"
+    ],
+    "python.linting.pylintArgs": [
+        "--extension-pkg-hitelist=PyQt5"
+    ],
+}
