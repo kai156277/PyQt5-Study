@@ -1,6 +1,6 @@
 import sys
 # pylint: disable = E0611
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip, QPushButton
 from PyQt5.QtGui import QIcon, QFont
 
 class HelloWorld(QWidget):
@@ -12,15 +12,25 @@ class HelloWorld(QWidget):
     
     def initUI(self):
         QToolTip.setFont(QFont('SansSerif', 10))
+
         self.setToolTip('This is a <b>QWidget</b> widget')
-        b = QLabel('Label', self)
-        b.setToolTip('This is a <b>QLabel</b> widget')
-        b.setText("Hello World!")
-        self.setGeometry(100, 100, 200, 50)
-        b.move(50, 20)
+        self.setGeometry(100, 100, 200, 100)
         self.setWindowTitle("PyQt5")
         self.setWindowIcon(QIcon('google.png'))
+
+        label = QLabel('Label', self)
+        label.setToolTip('This is a <b>QLabel</b> widget')
+        label.setText("Hello World!")
+        label.move(50, 20)
+
+        button = QPushButton('&Quit', self) # &Quit 的写法 绑定Alt+Q的快捷键到button上
+        button.clicked.connect(QApplication.instance().quit)
+        button.setToolTip('Quit this App!')
+        button.resize(button.sizeHint())
+        button.move(50, 50)
+
         self.show()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
