@@ -38,6 +38,8 @@ class ExampleMainWindow(QMainWindow):
         fileMenu.addAction(exitAct)
 
         self.statusBar().showMessage("Ready")
+        self.toolbar = self.addToolBar('Exit')
+        self.toolbar.addAction(exitAct)
 
         self.setGeometry(300, 300, 250, 150)
         self.setWindowTitle('Example Main Window')
