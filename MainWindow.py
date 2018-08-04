@@ -50,6 +50,18 @@ class ExampleMainWindow(QMainWindow):
         else:
             self.statusBar().hide()
     
+    def contextMenuEvent(self, event):
+
+        menu = QMenu(self)
+
+        newAct = menu.addAction("&New")
+        openAct = menu.addAction("&Open")
+        quitAct = menu.addAction("&Quit")
+        action = menu.exec_(self.mapToGlobal(event.pos()))
+
+        if action == quitAct:
+            self.close()
+    
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
