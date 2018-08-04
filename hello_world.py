@@ -1,6 +1,6 @@
 import sys
 # pylint: disable = E0611
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QToolTip, QPushButton, QMessageBox, QDesktopWidget
 from PyQt5.QtGui import QIcon, QFont
 
 class HelloWorld(QWidget):
@@ -28,6 +28,11 @@ class HelloWorld(QWidget):
         button.setToolTip('Quit this App!')
         button.resize(button.sizeHint())
         button.move(50, 50)
+        
+        qr = self.frameGeometry()
+        center = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(center)
+        self.move(qr.topLeft())
 
         self.show()
     
