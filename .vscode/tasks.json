@@ -6,7 +6,7 @@
         {
             "label": "python",
             "type": "shell",
-            "command": "python ${fileBasename}",
+            "command": "python ${relativeFile}",
             "problemMatcher": []
         }
     ]
