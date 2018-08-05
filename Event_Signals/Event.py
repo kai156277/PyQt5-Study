@@ -2,7 +2,7 @@ import sys
 
 #pylint: disable=E0611
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QGridLayout, QLabel
 
 class Example(QWidget):
     
@@ -11,6 +11,18 @@ class Example(QWidget):
         self.initUI()
 
     def initUI(self):
+        grid = QGridLayout()
+
+        x = 0
+        y = 0
+
+        self.text = "x: {0}, y: {1}".format(x, y)
+
+        self.label = QLabel(self.text, self)
+        grid.addWidget(self.label, 0, 0, Qt.AlignTop)
+
+        self.setMouseTracking(True)
+        self.setLayout(grid)
         
         self.setWindowTitle('Event handler')
         self.show()
@@ -18,6 +30,10 @@ class Example(QWidget):
     def keyPressEvent(self, event):
         if  event.key() == Qt.Key_Escape:
             self.close()
+    
+    def mouseMoveEvent(self, event):
+        self.label.setText("x: {0}, y: {1}".format(event.x(), event.y()))
+
 
 if __name__ == '__main__':
 
