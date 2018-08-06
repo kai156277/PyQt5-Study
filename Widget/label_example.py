@@ -3,8 +3,8 @@ import sys
 import os
 
 # pylint: disable=E0611
-from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QGridLayout
-from PyQt5.QtWidgets import QPushButton, QDialog, QLineEdit, QDialogButtonBox
+from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QGridLayout, QFormLayout
+from PyQt5.QtWidgets import QPushButton, QDialog, QLineEdit, QDialogButtonBox, QHBoxLayout
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QPalette
 
@@ -16,24 +16,37 @@ class LoginDialog(QDialog):
 
     def initUI(self):
         self.setWindowTitle('Login')
-        nameLabel = QLabel('&Name', self)
         nameLineEdit = QLineEdit(self)
-        nameLabel.setBuddy(nameLineEdit)
+        nameLineEdit.setPlaceholderText("Normal")
+        nameLineEdit.setEchoMode(QLineEdit.Normal)
 
-        passwordLabel = QLabel('&Password', self)
-        passwordLineEdit = QLineEdit(self)
-        passwordLabel.setBuddy(passwordLineEdit)
+        passwordLineEdit1 = QLineEdit(self)
+        passwordLineEdit1.setPlaceholderText("NoEcho")
+        passwordLineEdit1.setEchoMode(QLineEdit.NoEcho)
+
+        passwordLineEdit2 = QLineEdit(self)
+        passwordLineEdit2.setPlaceholderText("Password")
+        passwordLineEdit2.setEchoMode(QLineEdit.Password)
+
+        passwordLineEdit3 = QLineEdit(self)
+        passwordLineEdit3.setPlaceholderText("PasswordEchoOnEdit")
+        passwordLineEdit3.setEchoMode(QLineEdit.PasswordEchoOnEdit)
 
         btnBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel,
                                   Qt.Horizontal, self)
-        self.setLayout(QGridLayout())
-        self.layout().addWidget(nameLabel, 0, 0)
-        self.layout().addWidget(nameLineEdit, 0, 1, 1, 2)
+        hBox = QHBoxLayout()
+        hBox.addStretch()
+        hBox.addWidget(btnBox)
 
-        self.layout().addWidget(passwordLabel, 1, 0)
-        self.layout().addWidget(passwordLineEdit, 1, 1, 1, 2)
+        formLayout = QFormLayout()
+        formLayout.addRow('&Name', nameLineEdit)
+        formLayout.addRow('Password', passwordLineEdit1)
+        formLayout.addRow('Password', passwordLineEdit2)
+        formLayout.addRow('Password', passwordLineEdit3)
 
-        self.layout().addWidget(btnBox, 2, 1, 1, 2)
+        self.setLayout(QVBoxLayout())
+        self.layout().addLayout(formLayout)
+        self.layout().addLayout(hBox)
 
 class Demo(QWidget):
 
