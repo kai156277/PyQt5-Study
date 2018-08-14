@@ -8,6 +8,17 @@
             "type": "shell",
             "command": "python -u ${relativeFile}",
             "problemMatcher": []
+        },
+        {
+            "label": "pyinstaller",
+            "type": "shell",
+            "command": "pyinstaller -F -w ${relativeFile} --hidden-import PyQt5.sip",
+            "problemMatcher": []
+        },
+        {
+            "label": "app",
+            "type": "shell",
+            "command": "./dist/${fileBasenameNoExtension}"
         }
     ]
 }

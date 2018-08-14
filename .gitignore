@@ -1,0 +1,4 @@
+/build
+/disk
+*.spec
+__pycache__
