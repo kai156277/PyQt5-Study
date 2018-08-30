@@ -1,0 +1,48 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "python",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-u",
+                "${relativeFile}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "pyuic5",
+            "type": "shell",
+            "command": "pyuic5",
+            "args": [
+                "${relativeFile}",
+                "-o",
+                "${fileDirname}/UI_${fileBasenameNoExtension}.py"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "pyrcc5",
+            "type": "shell",
+            "command": "pyrcc5",
+            "args": [
+                "${relativeFile}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}_rc.py"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "qt-designer",
+            "type": "process",
+            "command": "/usr/lib/qt5/bin/designer",
+            "args": [
+                "${relativeFile}"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
