@@ -103,6 +103,7 @@
                 "VAR1": "1",
                 "VAR2": "2"
             },
+            // "envFile": "${workspaceFolder}/dev.env",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "arg1",
