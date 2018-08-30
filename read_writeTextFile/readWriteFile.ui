@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>read and write text files</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/image/open.png</normaloff>:/image/open.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>42</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNewFile"/>
+   <addaction name="actionOpenFile"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSaveAs"/>
+   <addaction name="actionCloseFile"/>
+   <addaction name="actionQuit"/>
+   <addaction name="actionSettings"/>
+  </widget>
+  <action name="actionOpenFile">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/open.png</normaloff>:/image/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>OpenFile</string>
+   </property>
+   <property name="toolTip">
+    <string>open text file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionNewFile">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/new.png</normaloff>:/image/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>NewFile</string>
+   </property>
+   <property name="toolTip">
+    <string>New text file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/quit.png</normaloff>:/image/quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit Application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/save.png</normaloff>:/image/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>save text file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/save_as.png</normaloff>:/image/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>SaveAs</string>
+   </property>
+   <property name="toolTip">
+    <string>save as text file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/settings.png</normaloff>:/image/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>setting text file</string>
+   </property>
+  </action>
+  <action name="actionCloseFile">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/image/close.png</normaloff>:/image/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>CloseFile</string>
+   </property>
+   <property name="toolTip">
+    <string>close text file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
